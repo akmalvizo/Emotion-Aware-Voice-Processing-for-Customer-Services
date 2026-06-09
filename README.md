@@ -1,4 +1,4 @@
-# Voice-Lab-Emotion-Detection-FYP
+# Emotion-Aware Voice Processing for Customer Services 
 Speech Emotion Recognition, in it you can find the emotion from voice, reduce noise from voice, enhance voice, convert voice to text and text to voice.
 🎙️ Multi-Functional Speech Emotion Recognition (SER) System
 This project is an end-to-end audio processing pipeline that combines advanced speech enhancement with Deep Learning-based emotion detection. While the core of the project is identifying human emotions from vocal cues, it includes a suite of essential audio tools like Noise Reduction and Voice Enhancement to ensure high accuracy even in real-world, noisy environments.
