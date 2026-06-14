@@ -1,0 +1,148 @@
+/* src/components/Layout/Footer.module.css */
+
+:root {
+    --color-primary-bg: #0A0A10; 
+    --color-border: #282835;    
+    --color-accent: #00FFFF; 
+    --color-text-primary: #f0f0f5; 
+    --color-text-secondary: #c2c2d6; 
+    --color-text-muted: #888899;
+}
+
+.mainFooter {
+    background-color: var(--color-primary-bg);
+    border-top: 1px solid var(--color-border);
+    padding: 60px 20px 20px 20px;
+    margin-top: auto; /* Pushes footer to the bottom of the page */
+}
+
+.footerContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Top Grid Layout --- */
+.footerGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* --- Brand Column --- */
+.brandLogo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    margin: 0 0 15px 0;
+    letter-spacing: -0.5px;
+}
+
+.brandDesc {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 320px;
+    margin-bottom: 25px;
+}
+
+.socialIcons {
+    display: flex;
+    gap: 15px;
+}
+
+.iconCircle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #151520;
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    transition: all 0.2s ease;
+    cursor: default; /* Not a link, just decorative */
+}
+
+.iconCircle:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* --- List Columns --- */
+.columnTitle {
+    color: var(--color-text-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+}
+
+.textList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.textItem {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    cursor: default; /* Ensures it doesn't look clickable */
+}
+
+/* --- Bottom Bar --- */
+.bottomBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--color-border);
+    padding-top: 20px;
+}
+
+.copyrightText {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.academicText {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+    font-style: italic;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 900px) {
+    .footerGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 20px;
+    }
+    .brandColumn {
+        grid-column: 1 / -1; /* Make brand take full width on tablets */
+    }
+    .brandDesc {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .footerGrid {
+        grid-template-columns: 1fr; /* Stack everything on mobile */
+        gap: 30px;
+    }
+    .bottomBar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}

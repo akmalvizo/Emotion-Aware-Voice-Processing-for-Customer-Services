@@ -1,0 +1,42 @@
+/* src/globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* LIGHTER DARK THEME (Not pitch black) */
+    --color-primary-bg: #12121A; /* Deep Slate / Lighter Black */
+    --color-card-bg: #1C1C26;    /* Soft Grey-Black for cards */
+    --color-border: #2D2D3B;     /* Visible but subtle borders */
+    
+    --color-accent-blue: #00FFFF; 
+    --color-accent-glow: rgba(0, 255, 255, 0.2);
+    
+    --color-status-failure: #ef4444; 
+    
+    --color-text-primary: #F0F0F5; 
+    --color-text-secondary: #94A3B8; 
+    --color-dark-text: #0A0A10; 
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--color-primary-bg); 
+    color: var(--color-text-primary); 
+    line-height: 1.5;
+}
+
+/* Global Shell Adjustments */
+.app-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primary-bg); 
+}

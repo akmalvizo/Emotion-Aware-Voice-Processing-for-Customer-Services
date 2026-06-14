@@ -1,0 +1,656 @@
+/* ========================================================= */
+/* VOICE ENHANCEMENT MODULE STYLES */
+/* ========================================================= */
+
+:root {
+    --color-feature-accent: #00FFFF; 
+    --color-feature-accent-light: #33FFFF;
+    --color-feature-glow: rgba(0, 255, 255, 0.4);
+    
+    --color-primary-bg: #0A0A10; 
+    --color-card-bg: #151520;    
+    --color-border: #282835;     
+    --color-accent-blue: #00FFFF; 
+    --color-text-primary: #f0f0f5; 
+    --color-text-secondary: #c2c2d6; 
+    --color-status-error: #ef4444;
+}
+
+.pageContainer {
+    color: var(--color-text-primary);
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.iconSmall { width: 18px; height: 18px; stroke-width: 2.5; }
+
+/* -------------------- UNIFIED HEADING COLORS -------------------- */
+.mainTitle, .cardTitle, .settingsTitle, .processingTitle, .resultHeadline, .comparisonTitle {
+    color: var(--color-feature-accent);
+}
+
+/* -------------------- Header -------------------- */
+.header {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-feature-accent); /* Color updated to site theme */
+    font-size: 1.1rem; /* Font size increased */
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, color 0.2s;
+    margin-bottom: 15px;
+}
+.backLink:hover {
+    color: var(--color-feature-accent-light);
+    transform: translateX(-3px);
+}
+
+.errorText {
+    color: var(--color-status-error); 
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 1rem;
+    padding: 10px 15px;
+    background-color: rgba(239, 68, 68, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.mainTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.subtitleText {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+}
+
+/* -------------------- Main Layout -------------------- */
+.contentArea {
+    padding: 20px 0;
+}
+
+.inputLayout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.dropzonePanel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--color-card-bg); 
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.cardTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.settingsPanel {
+    padding: 25px;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.settingsTitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 5px;
+}
+
+.dropzoneBox {
+    min-height: 250px; /* Made slightly taller to match ready box */
+    background-color: #1a1a24;
+    border: 3px dashed var(--color-border);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    flex-grow: 1;
+}
+
+.dropzoneBox:hover {
+    border-color: var(--color-feature-accent);
+    box-shadow: 0 0 10px var(--color-feature-glow);
+}
+
+/* 🚨 File Ready Box Styles 🚨 */
+.fileReadyBox {
+    min-height: 250px;
+    background-color: rgba(0, 255, 255, 0.05);
+    border: 1px solid var(--color-feature-accent);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.fileReadyTitle {
+    font-size: 1.2rem;
+    color: var(--color-feature-accent);
+    margin-bottom: 15px;
+}
+
+.fileInfoGroup {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.fileName {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-text-primary);
+}
+
+.fileDuration {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.htmlAudioPlayerPreview {
+    width: 80%;
+    margin-bottom: 20px;
+    filter: invert(80%) sepia(20%) saturate(1000%) hue-rotate(180deg) brightness(80%) contrast(100%); 
+}
+
+.fileReadyActions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.dropzoneIcon {
+    width: 40px;
+    height: 40px;
+    color: var(--color-feature-accent);
+    margin-bottom: 10px;
+}
+
+.dropzoneText {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 5px;
+}
+.dropzoneSubtext {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 15px;
+}
+
+.hiddenInput { display: none; }
+
+.dropzoneButtons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.uploadButton, .recordButton {
+    padding: 10px 20px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+.uploadButton {
+    background-color: var(--color-accent-blue);
+    color: var(--color-primary-bg);
+}
+.uploadButton:hover {
+    background-color: #33ffff;
+}
+.recordButton {
+    background: none;
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+.recordButton:hover:not(.recordingActive) {
+    border-color: var(--color-feature-accent);
+    background-color: #1a1a24;
+}
+
+/* -------------------- RECORDING ACTIVE STATE -------------------- */
+.recordingActive {
+    color: var(--color-status-error);
+    border-color: var(--color-status-error);
+    animation: pulseRecord 1.5s infinite;
+}
+@keyframes pulseRecord {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.enhanceCTA {
+    padding: 12px 25px;
+    background-color: var(--color-feature-accent);
+    color: var(--color-primary-bg);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px var(--color-feature-glow);
+}
+.enhanceCTA:hover:not(:disabled) {
+    background-color: var(--color-feature-accent-light);
+    transform: translateY(-2px);
+}
+.enhanceCTA:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.cancelButton {
+    padding: 10px 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    background: none;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+.cancelButton:hover {
+    background-color: #1a1a24;
+}
+
+.limitsText {
+    text-align: center;
+    font-size: 0.85rem; 
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+.limitsText strong {
+    color: var(--color-text-primary);
+}
+
+/* -------------------- Enhancement Controls -------------------- */
+.sliderGroup, .toggleGroup {
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #20202d;
+}
+
+/* Dim labels slightly since controls are disabled */
+.sliderLabel, .toggleLabel {
+    display: block;
+    font-weight: 700;
+    color: #ffffff;   /* ✅ FIX: make Low/Medium/High white */
+    margin-bottom: 10px;
+}
+
+.rangeSlider {
+    width: 100%;
+    height: 8px;
+    background: #3f3f46;
+    border-radius: 4px;
+    appearance: none;
+    cursor: allowed; /* Updated for disabled state */
+    margin-top: 5px;
+    opacity: 0.6;
+}
+.rangeSlider::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-feature-accent); /* Greyed out */
+    border: 3px solid var(--color-card-bg);
+    box-shadow: 0 0 10px var(--color-feature-glow);
+}
+
+.sliderLabels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    margin-top: 5px;
+}
+.controlValue {
+    color: var(--color-feature-accent);
+    font-weight: 700;
+}
+
+.toggleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0.6; /* Updated for disabled state */
+}
+
+.toggleDescription {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    flex-basis: 75%;
+}
+
+.controlToggle {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    cursor: allowed;
+}
+.controlToggle input { opacity: 0; width: 0; height: 0; }
+.sliderRound {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #3f3f46;
+    transition: 0.4s; border-radius: 20px;
+}
+.sliderRound:before {
+    position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px;
+    background-color: var(--color-text-secondary);
+    transition: 0.4s; border-radius: 50%;
+}
+input:checked + .sliderRound { background-color: var(--color-feature-accent); box-shadow: 0 0 10px var(--color-feature-glow); }
+input:checked + .sliderRound:before { transform: translateX(20px); background-color: white; }
+
+/* -------------------- Tips Layout -------------------- */
+.tipsCard {
+    margin-top: 25px;
+    background-color: #1a1a24;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid var(--color-border);
+}
+.tipList {
+    list-style: disc;
+    padding-left: 20px;
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+}
+.tipList li {
+    margin-bottom: 8px;
+}
+
+/* -------------------- Processing Status -------------------- */
+.processingWrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.processingTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    animation: fadePulse 1.5s infinite alternate;
+}
+
+@keyframes fadePulse { from { opacity: 1; } to { opacity: 0.7; } }
+
+.progressCard {
+    background-color: var(--color-card-bg);
+    border: 2px solid var(--color-feature-accent);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 20px var(--color-feature-glow);
+}
+
+.progressSteps {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.progressStepItem {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    padding: 8px 0;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stepCompleted {
+    color: var(--color-feature-accent);
+    font-weight: 600;
+}
+
+.stepActive {
+    color: var(--color-accent-blue); 
+    font-weight: 700;
+}
+
+.stepCheck {
+    width: 18px;
+    height: 18px;
+    color: var(--color-feature-accent);
+    stroke-width: 3;
+}
+
+.progressBarOuter {
+    height: 12px;
+    background-color: #3f3f46;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid var(--color-border);
+}
+
+.progressBarInner {
+    height: 100%;
+    background-color: var(--color-feature-accent);
+    transition: width 0.5s ease-out;
+    box-shadow: 0 0 8px var(--color-feature-glow);
+}
+
+.processingStatusText {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+/* -------------------- Result/Comparison -------------------- */
+.resultContainer {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 30px;
+    margin-top: 40px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+.successMessage {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.resultCheckIcon {
+    width: 50px; height: 50px; color: var(--color-feature-accent); stroke-width: 3; margin-bottom: 15px;
+}
+.resultHeadline {
+    font-size: 2.5rem; font-weight: 800;
+}
+.resultSubtext {
+    color: var(--color-text-secondary); font-size: 1rem; margin-top: 5px;
+}
+
+.comparisonGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.comparisonCard {
+    background-color: #1a1a24;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.comparisonTitle {
+    font-size: 1.1rem; font-weight: 700; margin-bottom: 15px; padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.htmlAudioPlayer {
+    width: 90%; margin-top: 10px;
+    filter: invert(80%) sepia(20%) saturate(1000%) hue-rotate(180deg) brightness(80%) contrast(100%); 
+}
+
+.downloadPanel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.fileInfo { font-size: 0.9rem; color: var(--color-text-secondary); }
+.fileInfo p { margin: 5px 0; }
+.settingsSummary { color: var(--color-feature-accent); font-style: italic; }
+
+.actionButtons { display: flex; gap: 10px; }
+
+.downloadBtn, .reEnhanceBtn, .newFileBtn {
+    padding: 10px 15px; font-weight: 600; border-radius: 6px; transition: all 0.2s; 
+    border: 1px solid transparent; display: flex; align-items: center; gap: 8px; 
+    text-decoration: none; cursor: pointer;
+}
+
+.downloadMP3 { background-color: var(--color-feature-accent); color: var(--color-primary-bg); }
+.downloadMP3:hover { background-color: var(--color-feature-accent-light); }
+
+.downloadWAV { background-color: #3f3f46; color: var(--color-text-primary); border-color: #5a5a69; }
+.downloadWAV:hover { background-color: #5a5a69; }
+
+.reEnhanceBtn { background: none; border-color: var(--color-accent-blue); color: var(--color-accent-blue); }
+.reEnhanceBtn:hover { background-color: rgba(0, 255, 255, 0.1); }
+
+.newFileBtn { background: none; border-color: var(--color-border); color: var(--color-text-secondary); }
+.newFileBtn:hover { border-color: var(--color-text-secondary); }
+
+/* -------------------- Footer Feature Cards -------------------- */
+.footerCardsContainer {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px dashed var(--color-border);
+}
+
+.footerCardsTitle {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.infoCard {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    
+    /* Animation Properties */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUpIn 0.6s ease forwards;
+}
+
+.infoCard:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-feature-accent);
+    box-shadow: 0 10px 25px color-mix(in srgb, var(--color-feature-accent) 15%, transparent);
+}
+
+.infoCardIcon {
+    width: 40px;
+    height: 40px;
+    stroke: var(--color-feature-accent);
+    margin-bottom: 15px;
+}
+
+.infoCard h4 {
+    color: var(--color-text-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.infoCard p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@keyframes fadeUpIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* -------------------- Responsiveness -------------------- */
+@media (max-width: 1024px) {
+    .inputLayout { grid-template-columns: 1fr; }
+    .settingsPanel { order: -1; }
+    .comparisonGrid { grid-template-columns: 1fr; }
+    .downloadPanel { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .actionButtons { width: 100%; flex-wrap: wrap; }
+    .downloadBtn, .reEnhanceBtn, .newFileBtn { width: 48%; }
+}
+
+@media (max-width: 600px) {
+    .pageContainer { padding: 15px; }
+    .mainTitle { font-size: 2rem; }
+    .downloadBtn, .reEnhanceBtn, .newFileBtn { width: 100%; }
+    .dropzoneButtons { flex-direction: column; width: 100%; }
+    .fileReadyActions { flex-direction: column; width: 100%; }
+    .enhanceCTA, .cancelButton { width: 100%; }
+    .downloadPanel { padding: 15px; }
+    .cardsGrid { grid-template-columns: 1fr; }
+}

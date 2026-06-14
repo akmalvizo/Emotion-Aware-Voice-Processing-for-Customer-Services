@@ -1,0 +1,148 @@
+/* src/pages/Voice/VoiceHub.module.css */
+
+:root {
+    --color-primary-bg: #0A0A10; 
+    --color-card-bg: #151520;
+    --color-border: #282835;
+    
+    /* 🚨 Unified Cyan Theme 🚨 */
+    --color-accent: #00FFFF; 
+    --color-accent-glow: rgba(0, 255, 255, 0.3);
+    
+    --color-text-primary: #f0f0f5;
+    --color-text-secondary: #c2c2d6;
+}
+
+.voiceHubLayout {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--color-text-primary);
+}
+
+.voiceHubHeader {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.mainTitle {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-accent); /* Cyan Heading */
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.subtitleText {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- GRID LAYOUT --- */
+.featureCardsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* --- CARDS --- */
+.featureCard {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 30px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.featureCard:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-accent);
+    box-shadow: 0 10px 30px var(--color-accent-glow);
+}
+
+.featureIconWrapper {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.featureCard:hover .featureIconWrapper {
+    background-color: var(--color-accent);
+}
+
+.featureIcon {
+    font-size: 1.8rem;
+}
+
+.cardTitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 10px;
+}
+
+.cardDescription {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 25px;
+}
+
+.cardCta {
+    font-weight: 600;
+    color: var(--color-accent);
+    font-size: 0.95rem;
+    transition: letter-spacing 0.2s ease;
+}
+
+.featureCard:hover .cardCta {
+    letter-spacing: 1px;
+}
+
+/* --- FOOTER NOTE --- */
+.hubNote {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px dashed var(--color-border);
+}
+
+.noteText {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.linkText {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.linkText:hover {
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .mainTitle {
+        font-size: 2.2rem;
+    }
+    .featureCardsGrid {
+        grid-template-columns: 1fr;
+    }
+}

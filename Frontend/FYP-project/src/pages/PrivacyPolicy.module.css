@@ -1,0 +1,115 @@
+/* src/pages/PrivacyPolicy.module.css */
+
+:root {
+    --color-primary-bg: #0A0A10; 
+    --color-card-bg: #151520;  
+    --color-border: #282835;    
+    --color-accent: #00FFFF; 
+    --color-text-primary: #f0f0f5; 
+    --color-text-secondary: #c2c2d6; 
+}
+
+.pageContainer {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--color-text-primary);
+    min-height: calc(100vh - 100px);
+}
+
+.iconSmall { 
+    width: 18px; 
+    height: 18px; 
+    stroke-width: 2.5; 
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    margin-bottom: 20px;
+}
+
+.backLink:hover {
+    color: var(--color-accent);
+}
+
+.mainTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    margin: 0 0 10px 0;
+    letter-spacing: -0.5px;
+}
+
+.lastUpdated {
+    color: var(--color-text-secondary);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.contentCard {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.policySection {
+    margin-bottom: 35px;
+}
+
+.policySection:last-child {
+    margin-bottom: 0;
+}
+
+.policySection h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 8px;
+}
+
+.policySection p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.policySection ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: var(--color-text-secondary);
+    margin-bottom: 15px;
+}
+
+.policySection li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.policySection strong {
+    color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+    .contentCard {
+        padding: 25px;
+    }
+    .mainTitle {
+        font-size: 2.2rem;
+    }
+}

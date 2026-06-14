@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.pyc
+*.pyd
+*.dll
+
+# Audio / Dataset
+*.wav
+*.mp3
+.mp3
+datasets/
+
+# Models
+*.h5
+*.pt
+
+# Node
+node_modules/
+outputs/
+
+
+# Env
+.env
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git (important)
+.git/
+
+
+# Virtual Environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Uploaded files
+uploads/
+
+# Environment variables
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log

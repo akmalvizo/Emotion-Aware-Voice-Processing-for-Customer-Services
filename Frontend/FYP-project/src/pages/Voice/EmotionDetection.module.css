@@ -1,0 +1,546 @@
+/* src/pages/Voice/EmotionDetection.module.css */
+
+:root {
+    --color-primary-bg: #0A0A10; 
+    --color-card-bg: #151520;
+    --color-border: #282835;
+    --color-accent: #00FFFF; 
+    --color-text-primary: #f0f0f5;
+    --color-text-secondary: #c2c2d6;
+    --color-status-error: #ef4444;
+    --space-lg: 30px;
+    --space-xl: 40px;
+
+    --theme-calmness-color: #4ac7ff;
+    --theme-joy-color: #ffc700;
+    --theme-neutral-color: #a0a0b0;
+    --theme-surprise-color: #c74aff;
+    --theme-anger-color: #ef4444;
+    --theme-sadness-color: #3b82f6;
+    --theme-fear-color: #ff7f4a;
+    
+    --theme-calmness-bg-light: #1a384a;
+    --theme-joy-bg-light: #4a381a;
+    --theme-neutral-bg-light: #282835;
+    --theme-surprise-bg-light: #381a4a;
+    --theme-anger-bg-light: #4a1a1a;
+    --theme-sadness-bg-light: #1a284a;
+    --theme-fear-bg-light: #4a281a;
+}
+
+.appContainer {
+    color: var(--color-text-primary);
+    padding-bottom: var(--space-xl);
+}
+
+.pageWrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 30px 20px 0;
+}
+
+.mainTitle, .cardHeader h3, .infoTitle, .insightHeader, .summaryTitle, .emptyTitle, .processingTitle {
+    color: var(--color-accent) !important;
+}
+
+.resultsContainer[class*="theme-"] {
+    --emotion-color: var(--theme-neutral-color);
+    --emotion-bg-light: var(--theme-neutral-bg-light);
+}
+
+.theme-calmness { --emotion-color: var(--theme-calmness-color); --emotion-bg-light: var(--theme-calmness-bg-light); }
+.theme-joy { --emotion-color: var(--theme-joy-color); --emotion-bg-light: var(--theme-joy-bg-light); }
+.theme-neutral { --emotion-color: var(--theme-neutral-color); --emotion-bg-light: var(--theme-neutral-bg-light); }
+.theme-surprise { --emotion-color: var(--theme-surprise-color); --emotion-bg-light: var(--theme-surprise-bg-light); }
+.theme-anger { --emotion-color: var(--theme-anger-color); --emotion-bg-light: var(--theme-anger-bg-light); }
+.theme-sadness { --emotion-color: var(--theme-sadness-color); --emotion-bg-light: var(--theme-sadness-bg-light); }
+.theme-fear { --emotion-color: var(--theme-fear-color); --emotion-bg-light: var(--theme-fear-bg-light); }
+
+.iconSmall { width: 18px; height: 18px; stroke-width: 2.5; }
+.iconLarge { width: 45px; height: 45px; stroke-width: 2; }
+.successIcon { width: 28px; height: 28px; stroke-width: 3; }
+
+.header {
+    margin-bottom: var(--space-lg);
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.headerTitleGroup { display: flex; flex-direction: column; }
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-accent);
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: opacity 0.2s;
+    text-decoration: none;
+}
+.backButton:hover { opacity: 0.8; }
+
+.mainTitle {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.subText {
+    color: var(--color-text-secondary);
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+.newAnalysisButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background-color: var(--color-accent);
+    color: var(--color-primary-bg);
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: opacity 0.2s, transform 0.1s;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+}
+.newAnalysisButton:hover { opacity: 0.9; }
+.newAnalysisButton:active { transform: scale(0.98); }
+
+.errorBanner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--color-status-error);
+    border-radius: 8px;
+    color: var(--color-status-error);
+    margin-bottom: var(--space-lg);
+}
+
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr; 
+    gap: var(--space-xl);
+}
+
+.inputColumn, .resultColumn {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.inputCard {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cardHeader {
+    padding: 18px 25px;
+    border-bottom: 1px solid var(--color-border);
+    background-color: #1a1a24; 
+    border-radius: 12px 12px 0 0;
+}
+.cardHeader h3 { font-size: 1.1rem; font-weight: 600; margin: 0; }
+
+.cardBody { padding: 25px; }
+
+/* --- Upload State --- */
+.idleContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.uploadCard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    border: 2px dashed var(--color-border);
+    border-radius: 10px;
+    background-color: #1a1a24; 
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.uploadCard:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.uploadIconWrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    background-color: rgba(0, 255, 255, 0.1); 
+    color: var(--color-accent);
+    transition: transform 0.2s;
+}
+.uploadCard:hover .uploadIconWrapper { transform: scale(1.1); }
+
+.cardTitle { font-weight: 700; font-size: 1.2rem; color: var(--color-text-primary); margin-bottom: 5px; }
+.cardSubtitle { font-size: 0.95rem; color: var(--color-text-secondary); margin-bottom: 8px; }
+.cardInfo { font-size: 0.8rem; color: #888899; }
+.hiddenInput { display: none; }
+
+.cancelButton {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.cancelButton:hover { color: var(--color-accent); }
+
+/* --- Processing/Success States --- */
+.processingState, .successState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+    text-align: center;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 255, 255, 0.2);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 15px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.processingTitle { font-weight: 600; font-size: 1.1rem; margin-bottom: 5px; }
+.processingSubtext { font-size: 0.95rem; color: var(--color-text-secondary); }
+
+.successIconWrapper {
+    width: 50px;
+    height: 50px;
+    background-color: #1a4a3a;
+    color: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.cancelJobButton { margin-top: 20px; }
+
+/* --- Info Card --- */
+.infoCard {
+    padding: 20px;
+    background-color: #1a243a; 
+    border: 1px solid #2c364c;
+    border-radius: 8px;
+    display: flex;
+    gap: 16px;
+}
+.infoIcon { color: var(--color-accent); flex-shrink: 0; margin-top: 2px; }
+.infoTitle { font-size: 0.95rem; font-weight: 600; margin-bottom: 5px; }
+.infoText { font-size: 0.9rem; color: var(--color-text-secondary); line-height: 1.5; }
+.infoDisclaimer { display: block; margin-top: 10px; color: #ffc700; font-weight: 500; }
+
+/* --- Results View --- */
+.resultsContainer {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+.dominantResultHeader {
+    padding: 30px 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--emotion-bg-light); 
+    border: 2px solid var(--emotion-color);
+    box-shadow: 0 0 15px color-mix(in srgb, var(--emotion-color) 30%, transparent);
+}
+
+.dominantLabel {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--emotion-color);
+    margin-bottom: 5px;
+}
+
+.dominantEmotion {
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: var(--emotion-color);
+    text-shadow: 0 0 5px color-mix(in srgb, var(--emotion-color) 50%, transparent);
+}
+
+.dominantScore {
+    font-size: 2rem;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 700;
+    color: var(--emotion-color);
+}
+
+.insightCard {
+    padding: 25px;
+    background-color: #1a1a24;
+    border-left: 4px solid var(--emotion-color);
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.insightHeader {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.insightText {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* --- Summary Card --- */
+.summaryCard {
+    padding: 20px;
+    background-color: #15151f; 
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+
+.summaryTitle {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.summaryText {
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+.emptyState {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--color-border);
+    border-radius: 12px;
+    color: var(--color-text-secondary);
+}
+
+.emptyIcon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    opacity: 0.6; 
+}
+
+.emptyTitle { font-weight: 600; font-size: 1.2rem; margin-bottom: 5px; }
+.emptySubtext { font-size: 0.95rem; }
+
+
+/* =========================================================
+   🚨 ALIGNED FOOTER CARDS AND ICON STYLES 🚨
+   ========================================================= */
+
+.footerSection {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px dashed var(--color-border);
+}
+
+.footerTitle {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.scrollingCardsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.scrollCard {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    
+    /* Animation Properties */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUpIn 0.6s ease forwards;
+}
+
+.scrollCard:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-accent);
+    box-shadow: 0 10px 25px color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+/* 🚨 Specific Icon Wrapper replacing the old boxy one 🚨 */
+.infoCardIcon {
+    width: 70px;
+    height: 70px;
+    stroke: var(--color-accent);
+    margin-bottom: 15px;
+    
+}
+
+.scrollCard h4 {
+    color: var(--color-text-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.scrollCard p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@keyframes fadeUpIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   CYBERPUNK / HUD CHART STYLES
+   ========================================================= */
+
+.chartCard {
+    background-color: #0A0A10; 
+    border: 1px solid rgba(0, 255, 255, 0.3); 
+    padding: 50px 30px 30px;
+    margin-top: 40px;
+    position: relative;
+    box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.05); 
+    border-radius: 4px; 
+}
+
+/* HUD Corner Accents (The sharp brackets on the top-left and bottom-right) */
+.chartCard::before,
+.chartCard::after {
+    content: '';
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border: 2px solid var(--color-accent);
+    pointer-events: none;
+}
+
+.chartCard::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+    box-shadow: -4px -4px 15px rgba(0, 255, 255, 0.2);
+}
+
+.chartCard::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
+    box-shadow: 4px 4px 15px rgba(0, 255, 255, 0.2);
+}
+
+/* Title matching the "PROJECT EMOTION DATA ANALYSIS" styling */
+.chartTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffffff;
+    text-align: center;
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0A0A10;
+    padding: 0 20px;
+    margin: 0;
+    white-space: nowrap;
+    border-top: 3px solid var(--color-accent);
+    box-shadow: 0 -10px 20px rgba(0, 255, 255, 0.15);
+}
+
+.chartTitleAccent {
+    color: var(--color-accent);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+/* Dark theme tooltip for the hover state */
+.customTooltip {
+    background-color: rgba(10, 10, 16, 0.95);
+    border: 1px solid var(--color-accent);
+    padding: 12px 18px;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    color: var(--color-accent);
+    font-weight: 700;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.1rem;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 1024px) {
+    .mainGrid { grid-template-columns: 1fr; gap: 40px; }
+    .header { flex-direction: column; align-items: flex-start; gap: 15px; }
+}
+@media (max-width: 600px) {
+    .mainTitle { font-size: 1.8rem; }
+    .dominantEmotion { font-size: 2.2rem; }
+    .dominantResultHeader { flex-direction: column; text-align: center; gap: 15px;}
+    .scrollingCardsContainer { grid-template-columns: 1fr; }
+    .chartTitle { font-size: 1rem; padding: 0 10px; }
+}

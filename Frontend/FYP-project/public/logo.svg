@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="cyanBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FFFF" />
+      <stop offset="100%" stop-color="#0055FF" />
+    </linearGradient>
+    
+    <linearGradient id="cyanPurple" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FFFF" />
+      <stop offset="100%" stop-color="#8A2BE2" />
+    </linearGradient>
+    
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="110" fill="#0A0A10" />
+
+  <g filter="url(#neonGlow)">
+    <path d="M 140 160 L 230 360 L 320 160" 
+          fill="none" 
+          stroke="url(#cyanBlue)" 
+          stroke-width="50" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+
+    <path d="M 285 160 L 285 360 L 390 360" 
+          fill="none" 
+          stroke="url(#cyanPurple)" 
+          stroke-width="50" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" />
+          
+    <circle cx="390" cy="260" r="25" fill="#00FFFF" />
+  </g>
+</svg>

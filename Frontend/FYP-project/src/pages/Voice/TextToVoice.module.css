@@ -1,0 +1,502 @@
+/* ========================================================= */
+/* 0. Variables & Base Setup */
+/* ========================================================= */
+
+:root {
+    --color-feature-accent: #00FFFF;
+    --color-feature-accent-light: #33FFFF;
+    
+    --color-primary-bg: #0A0A10; 
+    --color-card-bg: #151520;    
+    --color-border: #282835;     
+    --color-text-primary: #f0f0f5; 
+    --color-text-secondary: #c2c2d6; 
+    --color-status-error: #ef4444;
+}
+
+.pageContainer {
+    min-height: 100vh;
+    background-color: var(--color-primary-bg);
+    color: var(--color-text-primary);
+    padding: 30px;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+.iconSmall { width: 16px; height: 16px; stroke-width: 2.5; }
+
+/* -------------------- UNIFIED HEADING COLORS -------------------- */
+.mainTitle, .settingsTitle, .processingTitle, .resultTitle, .previewTitle {
+    color: var(--color-feature-accent);
+}
+
+/* ========================================================= */
+/* 1. Header & Typography */
+/* ========================================================= */
+
+.header {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-feature-accent); 
+    font-size: 1.1rem; 
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s, color 0.2s;
+    margin-bottom: 15px;
+}
+.backLink:hover {
+    color: var(--color-feature-accent-light);
+    transform: translateX(-3px);
+}
+
+.mainTitle {
+    font-size: 2.2rem;
+    font-weight: 700; 
+    letter-spacing: -0.5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.subtitleText {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+}
+
+.errorText {
+    color: var(--color-status-error);
+    margin-top: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* ========================================================= */
+/* 2. Input and Settings Layout (Equal Heights) */
+/* ========================================================= */
+
+.formGrid {
+    display: flex;
+    gap: 30px;
+    align-items: stretch; 
+}
+
+.inputContainer {
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsContainer {
+    flex: 1; 
+    padding: 25px;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column; 
+}
+
+.settingsTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--color-feature-accent);
+    padding-bottom: 5px;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.inputLabel {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.textArea {
+    width: 100%;
+    flex-grow: 1; 
+    padding: 15px;
+    background-color: #1a1a24; 
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    resize: none; 
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.textArea:focus {
+    outline: none;
+    border-color: var(--color-feature-accent);
+    box-shadow: 0 0 10px color-mix(in srgb, var(--color-feature-accent) 40%, transparent); 
+}
+
+.selectField {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1a24;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    appearance: none; 
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300FFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+.comingSoonText {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(0, 255, 255, 0.05);
+    border-left: 3px solid var(--color-feature-accent);
+    border-radius: 0 6px 6px 0;
+}
+
+.actionArea {
+    margin-top: auto; 
+}
+
+.charCounter {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-top: 10px;
+}
+.charLimitExceeded {
+    color: var(--color-status-error);
+    font-weight: 600;
+}
+
+.primaryButton {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-feature-accent);
+    color: var(--color-primary-bg);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px color-mix(in srgb, var(--color-feature-accent) 50%, transparent);
+}
+.primaryButton:hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--color-feature-accent) 80%, black);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--color-feature-accent) 60%, transparent);
+}
+.primaryButton:disabled {
+    background-color: #3f3f46;
+    color: #888899;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ========================================================= */
+/* 3. Processing and Result Areas */
+/* ========================================================= */
+
+.mainResultArea {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.processingCard {
+    text-align: center;
+    padding: 40px;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-feature-accent);
+    border-radius: 12px;
+    box-shadow: 0 0 15px color-mix(in srgb, var(--color-feature-accent) 30%, transparent);
+    width: 100%;
+    max-width: 500px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(0, 255, 255, 0.2);
+    border-top-color: var(--color-feature-accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 20px;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.processingTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.processingSubtext {
+    color: var(--color-text-secondary);
+    margin-top: 5px;
+}
+
+.textDetails {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    margin-top: 15px;
+}
+
+.resultContainer {
+    width: 100%;
+    max-width: 700px;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-feature-accent); 
+    border-radius: 12px;
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-feature-accent) 30%, transparent); 
+    padding: 30px;
+}
+
+.resultHeader {
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed var(--color-feature-accent);
+}
+
+.resultIcon {
+    width: 40px;
+    height: 40px;
+    color: var(--color-feature-accent);
+    margin-bottom: 10px;
+}
+
+.resultTitle {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.resultSubtitle {
+    color: var(--color-text-secondary);
+    margin-top: 5px;
+}
+
+.highlight {
+    color: var(--color-feature-accent);
+    font-weight: 700;
+}
+
+.resultContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.audioPreview {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a24;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.htmlAudioPlayer {
+    width: 90%;
+    margin-top: 10px;
+    filter: invert(80%) sepia(20%) saturate(1000%) hue-rotate(180deg) brightness(80%) contrast(100%); 
+}
+
+.audioIcon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-feature-accent);
+    margin-right: 5px;
+}
+
+.resultActions {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+}
+
+.downloadButton, .resetButton {
+    padding: 12px 20px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: block;
+    width: 48%;
+    text-align: center;
+}
+
+.downloadButton {
+    background-color: var(--color-feature-accent); 
+    color: var(--color-primary-bg);
+    border: none;
+}
+.downloadButton:hover {
+    background-color: var(--color-feature-accent-light);
+    transform: translateY(-1px);
+}
+
+.resetButton {
+    background: none;
+    color: var(--color-feature-accent);
+    border: 1px solid var(--color-feature-accent);
+}
+.resetButton:hover {
+    background-color: color-mix(in srgb, var(--color-feature-accent) 10%, transparent);
+}
+
+.sourceTextPreview {
+    margin-top: 25px;
+    padding: 15px;
+    border: 1px solid var(--color-border);
+    background-color: #1a1a24;
+    border-radius: 8px;
+}
+
+.previewTitle {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.previewText {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    white-space: pre-wrap; 
+}
+
+/* ========================================================= */
+/* 4. Footer Feature Cards */
+/* ========================================================= */
+
+.footerCardsContainer {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px dashed var(--color-border);
+}
+
+.footerCardsTitle {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.infoCard {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    
+    /* Animation Properties */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUpIn 0.6s ease forwards;
+}
+
+.infoCard:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-feature-accent);
+    box-shadow: 0 10px 25px color-mix(in srgb, var(--color-feature-accent) 15%, transparent);
+}
+
+.infoCardIcon {
+    width: 40px;
+    height: 40px;
+    stroke: var(--color-feature-accent);
+    margin-bottom: 15px;
+}
+
+.infoCard h4 {
+    color: var(--color-text-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.infoCard p {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@keyframes fadeUpIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================================= */
+/* 5. Responsiveness */
+/* ========================================================= */
+
+@media (max-width: 1024px) {
+    .formGrid {
+        flex-direction: column;
+    }
+    .settingsContainer {
+        order: -1; 
+    }
+    .mainResultArea {
+        padding: 30px 0;
+    }
+    .textArea {
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    .pageContainer {
+        padding: 15px;
+    }
+    .mainTitle {
+        font-size: 1.8rem;
+    }
+    .resultActions {
+        flex-direction: column;
+    }
+    .downloadButton, .resetButton {
+        width: 100%;
+    }
+    .cardsGrid {
+        grid-template-columns: 1fr;
+    }
+}
