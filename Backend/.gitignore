@@ -1,55 +1,88 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+
+# ==========================================
 # Python
+# ==========================================
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyd
 *.dll
 
-# Audio / Dataset
-*.wav
-*.mp3
-.mp3
-datasets/
-
-# Models
-*.h5
-*.pt
-
-# Node
-node_modules/
-outputs/
-
-
-# Env
-.env
-
-# Logs
-*.log
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Git (important)
-.git/
-
-
+# ==========================================
 # Virtual Environment
+# ==========================================
 venv/
 .venv/
+env/
 
-# Python cache
-__pycache__/
-*.pyc
-
-# Uploaded files
-uploads/
-
-# Environment variables
+# ==========================================
+# Environment Variables
+# ==========================================
 .env
 
-# IDE files
+# ==========================================
+# Logs
+# ==========================================
+*.log
+
+# ==========================================
+# IDE
+# ==========================================
 .vscode/
 .idea/
 
-# Logs
-*.log
+# ==========================================
+# Node.js
+# ==========================================
+node_modules/
+
+# ==========================================
+# Generated Files
+# ==========================================
+uploads/
+outputs/
+
+# ==========================================
+# Datasets
+# ==========================================
+datasets/
+*.wav
+*.mp3
+
+# ==========================================
+# AI Models
+# ==========================================
+*.h5
+*.pt
+*.pth
+*.keras
+
+# ==========================================
+# OS Files
+# ==========================================
+.DS_Store
+Thumbs.db

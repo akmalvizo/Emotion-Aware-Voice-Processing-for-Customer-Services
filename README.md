@@ -448,7 +448,7 @@ curl -X POST "http://127.0.0.1:8000/transcribe" \
 
 | Dashboard | Voice Hub |
 |---|---|
-| ![Dashboard](docs/screenshots/dashboard.png) | ![Voice Hub](docs/screenshots/voicehub.png) |
+| ![Dashboard](docs/screenshots/dashboard.png) | ![Voice Enhacement](docs/screenshots/enhancement.png) |
 
 | Emotion Detection | Voice-to-Text |
 |---|---|
@@ -483,20 +483,14 @@ This project was developed as a Final Year Project by:
   <tr>
     <td align="center">
       <b>Talal</b><br/>
-      <sub>Full Stack Developer · AI/ML Engineer</sub>
+      <sub>Frontend Developer</sub>
     </td>
     <td align="center">
       <b>Akmal</b><br/>
-      <sub>Full Stack Developer · AI/ML Engineer</sub>
+      <sub>Backend Developer · AI/ML Engineer</sub>
     </td>
   </tr>
 </table>
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ---
 
